@@ -10,7 +10,7 @@
 # Conveniently, all article pages on Jekyll seem to have a <meta property="article:published_time"> tag.
 # If this tag is not present, we'll assume that the page is not an article and does not require an Instant View page.
 # This *condition* does the trick:
-?exists: /html/head/meta[@property="article:published_time"]
+?exists: /html/body/div[@class="wrapper post"]
 
 ### STEP 2: Define the essential elements
 
@@ -27,3 +27,5 @@ title:    $body//h1[1]
 @remove: //p[has-class("post-meta")]
 # remove <noscript> text
 @remove: //noscript
+
+@set_attr(dir, "rtl"): $body   
